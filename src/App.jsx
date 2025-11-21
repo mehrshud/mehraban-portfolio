@@ -36,11 +36,6 @@ import {
   Sun,
   Moon,
   MessageSquare,
-  School,
-  Sparkles,
-  Check,
-  FileType,
-  Rocket,
 } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
@@ -60,46 +55,29 @@ const CONFIG = {
     scholar: "https://scholar.google.com/citations?user=z-FLxlEAAAAJ&hl=en",
     location: "London, United Kingdom",
   },
-  lms: {
-    url: "https://hamavandy-lms.com",
-    name: "Hamavandy LMS",
+  resumes: {
+    pdf: "/Mehraban_Hamavandy_Resume.pdf",
+    word: "/Mehraban_Hamavandy_Resume.docx",
   },
-  resumes: [
-    {
-      id: "esol",
-      title: "ESOL Teacher CV",
-      description:
-        "Comprehensive CV for ESOL & EAL teaching positions in UK schools",
-      format: "PDF",
-      icon: BookOpen,
-      color: "emerald",
-      fileUrl: "/Mehraban_Hamavandy_ESOL_CV.pdf",
-      highlights: ["17+ years experience", "PhD TESL", "UK qualifications"],
-    },
-    {
-      id: "ta",
-      title: "Teaching Assistant CV",
-      description: "Focused on EAL support, SEND & behaviour management",
-      format: "DOCX",
-      icon: Users,
-      color: "blue",
-      fileUrl: "/Mehraban-Hamavandy-TA-CV.docx",
-      highlights: ["SEND support", "Safeguarding Level 2", "Behaviour support"],
-    },
-    {
-      id: "research",
-      title: "Academic Research CV",
-      description: "Research profile with publications & academic experience",
-      format: "PDF",
-      icon: GraduationCap,
-      color: "purple",
-      fileUrl: "/Mehraban-Hamavandy-Research-CV.pdf",
-      highlights: [
-        "50+ publications",
-        "Assessment expert",
-        "University lecturer",
-      ],
-    },
+};
+
+/**
+ * Contact form options – EDIT THESE to change the dropdown / radio choices.
+ */
+const CONTACT_CONFIG = {
+  enquiryTypes: [
+    "Teaching role in a UK school",
+    "Private English tuition (online / in-person)",
+    "Translation / interpreting (Farsi, Kurdish, English)",
+    "Academic collaboration / research",
+    "Other",
+  ],
+  services: [
+    "EAL / ESOL support",
+    "SEND & behaviour support",
+    "IELTS / exam preparation",
+    "Translation / interpreting",
+    "Curriculum or assessment design",
   ],
 };
 
@@ -109,156 +87,97 @@ const CONFIG = {
 
 const SEO = () => {
   useEffect(() => {
-    // Enhanced meta tags
     const title =
-      "Dr Mehraban Hamavandy | PhD TESL | EAL, ESOL & IELTS Teacher London";
+      "Dr Mehraban Hamavandy | PhD TESL | London EAL, ESOL & SEND Specialist";
     const description =
-      "Dr Mehraban Hamavandy - PhD qualified ESOL/EAL teacher in London. 17+ years experience. IELTS tutor, Farsi/English interpreter, SEND support. Available for UK schools. دکتر مهربان هماوندی - معلم آیلتس در لندن";
+      "دکتر مهربان هماوندی (PhD TESL) – مدرس آیلتس، معلم زبان انگلیسی در لندن، متخصص EAL، SEND، ESOL، تفسیر فارسی-انگلیسی و پشتیبانی رفتاری در مدارس بریتانیا.";
     const keywords = [
-      // English keywords
+      // English
       "Mehraban Hamavandy",
       "Dr Mehraban Hamavandy",
-      "PhD TESL London",
+      "PhD TESL",
       "EAL teacher London",
       "ESOL tutor London",
-      "IELTS teacher London",
-      "English teacher London",
-      "Farsi English teacher",
-      "Kurdish English teacher",
-      "SEND teaching assistant London",
-      "behaviour support teacher",
+      "SEND teaching assistant",
+      "behaviour support London schools",
       "Farsi English interpreter London",
-      "Persian English translator",
-      "English tutor for migrants",
-      "asylum seeker English teacher",
+      "Kurdish Farsi English translator",
+      "IELTS teacher London",
+      "English teacher for migrants UK",
       "academic English lecturer",
-      "language assessment expert",
-      // Persian keywords
+      // Persian – main SEO focus
       "دکتر مهربان هماوندی",
-      "مدرس آیلتس لندن",
-      "معلم زبان انگلیسی لندن",
-      "مدرس ESOL لندن",
-      "مترجم فارسی انگلیسی",
-      "مترجم کردی انگلیسی",
+      "مدرس آیلتس در لندن",
+      "مدرس زبان انگلیسی در لندن",
+      "مدرس EAL در انگلستان",
       "آموزش زبان انگلیسی در لندن",
-      "کلاس آیلتس لندن",
-      "معلم EAL بریتانیا",
-      "مدرس زبان برای مهاجران",
+      "مدرس ESOL در بریتانیا",
+      "مترجم فارسی به انگلیسی در لندن",
+      "مترجم انگلیسی به فارسی لندن",
+      "مترجم شفاهی فارسی انگلیسی",
+      "مترجم  به انگلیسی",
+      "معلم SEND در مدارس بریتانیا",
+      "پشتیبان رفتاری مدارس لندن",
+      "آموزش آیلتس برای مهاجران",
+      "کلاس زبان انگلیسی برای پناهجویان",
     ].join(", ");
 
     document.title = title;
 
-    const metaTags = [
-      { name: "description", content: description },
-      { name: "keywords", content: keywords },
-      {
-        name: "robots",
-        content:
-          "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-      },
-      { name: "language", content: "en-GB" },
-      { name: "author", content: "Dr Mehraban Hamavandy" },
-      {
-        name: "viewport",
-        content: "width=device-width, initial-scale=1.0, viewport-fit=cover",
-      },
-      { name: "theme-color", content: "#10b981" },
-      { name: "mobile-web-app-capable", content: "yes" },
-      { name: "apple-mobile-web-app-capable", content: "yes" },
-      {
-        name: "apple-mobile-web-app-status-bar-style",
-        content: "black-translucent",
-      },
-      { name: "format-detection", content: "telephone=no" },
-      { name: "geo.region", content: "GB-LND" },
-      { name: "geo.placename", content: "London" },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "profile" },
-      { property: "og:locale", content: "en_GB" },
-      { property: "og:locale:alternate", content: "fa_IR" },
-      { property: "og:site_name", content: "Dr Mehraban Hamavandy Portfolio" },
-      { property: "twitter:card", content: "summary_large_image" },
-      { property: "twitter:title", content: title },
-      { property: "twitter:description", content: description },
-    ];
-
-    metaTags.forEach(({ name, property, content }) => {
-      const attr = name ? "name" : "property";
-      const value = name || property;
-      let tag = document.querySelector(`meta[${attr}="${value}"]`);
+    const ensureMeta = (name, content) => {
+      let tag = document.querySelector(`meta[name="${name}"]`);
       if (!tag) {
         tag = document.createElement("meta");
-        tag.setAttribute(attr, value);
+        tag.setAttribute("name", name);
         document.head.appendChild(tag);
       }
       tag.setAttribute("content", content);
-    });
-
-    // Enhanced JSON-LD structured data
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      name: "Mehraban Hamavandy",
-      alternateName: ["Dr Mehraban Hamavandy", "مهربان هماوندی"],
-      jobTitle: "PhD Education Professional, ESOL/EAL Teacher & IELTS Tutor",
-      description:
-        "Experienced ESOL/EAL teacher and IELTS tutor with PhD in TESL, specializing in supporting multilingual learners in UK schools",
-      url: window.location.href,
-      image: CONFIG.image,
-      email: CONFIG.contact.email,
-      telephone: CONFIG.contact.phone,
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "London",
-        addressCountry: "GB",
-      },
-      knowsLanguage: [
-        { "@type": "Language", name: "English", alternateName: "en" },
-        { "@type": "Language", name: "Persian", alternateName: "fa" },
-        { "@type": "Language", name: "Kurdish", alternateName: "ku" },
-        { "@type": "Language", name: "Arabic", alternateName: "ar" },
-        { "@type": "Language", name: "Turkish", alternateName: "tr" },
-      ],
-      alumniOf: [
-        {
-          "@type": "EducationalOrganization",
-          name: "Tarbiat Modares University",
-          sameAs: "https://www.modares.ac.ir/eng",
-        },
-      ],
-      hasCredential: [
-        {
-          "@type": "EducationalOccupationalCredential",
-          credentialCategory: "degree",
-          educationalLevel: "Doctoral",
-          name: "PhD in Teaching English as a Second Language",
-        },
-      ],
-      sameAs: [CONFIG.contact.linkedin, CONFIG.contact.scholar],
-      worksFor: {
-        "@type": "EducationalOrganization",
-        name: "Freelance ESOL & IELTS Tutor",
-      },
     };
 
-    const existingScript = document.getElementById("person-schema");
-    if (existingScript) existingScript.remove();
+    const ensurePropertyMeta = (property, content) => {
+      let tag = document.querySelector(`meta[property="${property}"]`);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("property", property);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", content);
+    };
+
+    ensureMeta("description", description);
+    ensureMeta("keywords", keywords);
+    ensureMeta("robots", "index,follow");
+    ensureMeta("language", "fa,en");
+
+    // Open Graph
+    ensurePropertyMeta("og:title", title);
+    ensurePropertyMeta("og:description", description);
+    ensurePropertyMeta("og:type", "website");
+    ensurePropertyMeta("og:locale", "fa_IR");
+
+    // JSON-LD Person schema
+    const existingJsonLd = document.getElementById("person-schema");
+    if (existingJsonLd) existingJsonLd.remove();
 
     const script = document.createElement("script");
     script.id = "person-schema";
     script.type = "application/ld+json";
-    script.innerHTML = JSON.stringify(structuredData);
+    script.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Mehraban Hamavandy",
+      alternateName: "مهربان هماوندی",
+      jobTitle: "PhD Education Professional, IELTS & EAL Teacher",
+      url: window.location.href,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "London",
+        addressCountry: "United Kingdom",
+      },
+      knowsLanguage: ["English", "Persian", "Kurdish", "Arabic", "Turkish"],
+      sameAs: [CONFIG.contact.linkedin, CONFIG.contact.scholar],
+    });
     document.head.appendChild(script);
-
-    // Canonical URL
-    let canonical = document.querySelector("link[rel='canonical']");
-    if (!canonical) {
-      canonical = document.createElement("link");
-      canonical.setAttribute("rel", "canonical");
-      document.head.appendChild(canonical);
-    }
-    canonical.setAttribute("href", window.location.href);
   }, []);
 
   return null;
@@ -352,7 +271,7 @@ const CustomCursor = () => {
 const SectionHeader = ({ title, subtitle, icon: Icon }) => {
   const [ref, visible] = useScrollReveal();
   return (
-    <header
+    <div
       ref={ref}
       className={`mb-16 md:mb-24 text-center transition-all duration-1000 transform ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -364,6 +283,9 @@ const SectionHeader = ({ title, subtitle, icon: Icon }) => {
             <Icon className="text-emerald-500" size={26} />
           </div>
         )}
+        {/* <span className="hidden sm:inline text-xs font-semibold tracking-[0.2em] uppercase text-emerald-500">
+          London · English Education · UK
+        </span> */}
       </div>
       <h2 className="text-4xl md:text-6xl font-display font-bold text-slate-900 dark:text-white mb-4 md:mb-6 relative inline-block tracking-tight">
         {title}
@@ -374,7 +296,7 @@ const SectionHeader = ({ title, subtitle, icon: Icon }) => {
           {subtitle}
         </p>
       )}
-    </header>
+    </div>
   );
 };
 
@@ -455,7 +377,7 @@ const StatCard = ({ number, label, icon: Icon, delay = 0 }) => {
   }, [visible, number]);
 
   return (
-    <article
+    <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
       className={`transition-all duration-700 ${
@@ -465,11 +387,7 @@ const StatCard = ({ number, label, icon: Icon, delay = 0 }) => {
       <div className="relative group h-full">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/15 to-teal-500/15 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500" />
         <div className="relative h-full backdrop-blur-xl bg-white/80 dark:bg-slate-900/60 border border-white/70 dark:border-white/10 rounded-3xl px-5 py-6 md:px-8 md:py-8 flex flex-col items-center justify-center gap-2">
-          <Icon
-            className="text-emerald-500 mb-1"
-            size={32}
-            aria-hidden="true"
-          />
+          <Icon className="text-emerald-500 mb-1" size={32} />
           <div className="text-3xl md:text-5xl font-display font-bold text-slate-900 dark:text-white">
             {count}
             <span className="text-emerald-500">+</span>
@@ -479,137 +397,7 @@ const StatCard = ({ number, label, icon: Icon, delay = 0 }) => {
           </div>
         </div>
       </div>
-    </article>
-  );
-};
-
-/* -------------------------------------------------------------------------- */
-/*                            CV Download Component                          */
-/* -------------------------------------------------------------------------- */
-
-const CVDownloadCard = ({ cv, index }) => {
-  const [ref, visible] = useScrollReveal();
-  const [isDownloading, setIsDownloading] = useState(false);
-
-  const colorMap = {
-    emerald: {
-      bg: "from-emerald-500/20 to-teal-500/20",
-      border: "border-emerald-400/60",
-      text: "text-emerald-600 dark:text-emerald-300",
-      hover: "hover:shadow-[0_24px_60px_rgba(16,185,129,0.4)]",
-      glow: "from-emerald-500/15 to-teal-500/15",
-    },
-    blue: {
-      bg: "from-sky-500/20 to-blue-500/20",
-      border: "border-sky-400/60",
-      text: "text-sky-600 dark:text-sky-300",
-      hover: "hover:shadow-[0_24px_60px_rgba(14,165,233,0.4)]",
-      glow: "from-sky-500/15 to-blue-500/15",
-    },
-    purple: {
-      bg: "from-purple-500/20 to-fuchsia-500/20",
-      border: "border-purple-400/60",
-      text: "text-purple-600 dark:text-purple-300",
-      hover: "hover:shadow-[0_24px_60px_rgba(168,85,247,0.4)]",
-      glow: "from-purple-500/15 to-fuchsia-500/15",
-    },
-  };
-
-  const colors = colorMap[cv.color];
-
-  const handleDownload = () => {
-    setIsDownloading(true);
-    // Simulate download
-    setTimeout(() => {
-      const link = document.createElement("a");
-      link.href = cv.fileUrl;
-      link.download = cv.fileUrl.split("/").pop();
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      setIsDownloading(false);
-    }, 800);
-  };
-
-  return (
-    <article
-      ref={ref}
-      style={{ transitionDelay: `${index * 150}ms` }}
-      className={`transition-all duration-700 ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      }`}
-    >
-      <div className="relative group h-full">
-        <div
-          className={`absolute inset-0 bg-gradient-to-br ${colors.glow} rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500`}
-        />
-        <div
-          className={`relative h-full backdrop-blur-xl bg-white/80 dark:bg-slate-900/70 border-2 ${colors.border} rounded-3xl p-6 md:p-8 flex flex-col transition-all duration-500 ${colors.hover} group-hover:-translate-y-2`}
-        >
-          {/* Icon & Format Badge */}
-          <div className="flex items-start justify-between mb-5">
-            <div
-              className={`p-4 rounded-2xl bg-gradient-to-br ${colors.bg} border ${colors.border} shadow-lg`}
-            >
-              <cv.icon className={colors.text} size={32} aria-hidden="true" />
-            </div>
-            <span
-              className={`px-3 py-1.5 rounded-full text-xs font-bold ${colors.text} bg-gradient-to-r ${colors.bg} border ${colors.border}`}
-            >
-              {cv.format}
-            </span>
-          </div>
-
-          {/* Title & Description */}
-          <h3 className="text-xl md:text-2xl font-display font-bold text-slate-900 dark:text-white mb-3">
-            {cv.title}
-          </h3>
-          <p className="text-sm md:text-base text-slate-600 dark:text-slate-300 mb-6 flex-grow leading-relaxed">
-            {cv.description}
-          </p>
-
-          {/* Highlights */}
-          <div className="space-y-2 mb-6">
-            {cv.highlights.map((highlight, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-2 text-xs md:text-sm text-slate-700 dark:text-slate-200"
-              >
-                <Check size={16} className={colors.text} aria-hidden="true" />
-                <span>{highlight}</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Download Button */}
-          <button
-            onClick={handleDownload}
-            disabled={isDownloading}
-            className={`w-full group/btn inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-2xl bg-gradient-to-r ${colors.bg} border-2 ${colors.border} ${colors.text} font-semibold shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed`}
-            aria-label={`Download ${cv.title}`}
-          >
-            {isDownloading ? (
-              <>
-                <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin" />
-                <span>Downloading...</span>
-              </>
-            ) : (
-              <>
-                <Download
-                  size={20}
-                  className="group-hover/btn:animate-bounce"
-                />
-                <span>Download CV</span>
-                <ArrowRight
-                  size={18}
-                  className="group-hover/btn:translate-x-1 transition-transform"
-                />
-              </>
-            )}
-          </button>
-        </div>
-      </div>
-    </article>
+    </div>
   );
 };
 
@@ -623,6 +411,14 @@ export default function App() {
   const [toast, setToast] = useState({ show: false, message: "" });
   const [scrolled, setScrolled] = useState(false);
   const [isDark, setIsDark] = useState(true);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+    enquiryType: "Teaching role in a UK school",
+    serviceArea: "EAL / ESOL support",
+    preferredContact: "Email",
+  });
 
   const parallaxOffset = useParallax();
   const mousePosition = useMouseGlow();
@@ -637,6 +433,18 @@ export default function App() {
     showToast("✓ Copied to clipboard");
   };
 
+  const downloadResume = (format) => {
+    const link = document.createElement("a");
+    link.href = CONFIG.resumes[format];
+    link.download = `Mehraban_Hamavandy_CV.${
+      format === "pdf" ? "pdf" : "docx"
+    }`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    showToast(`✓ CV downloaded (${format.toUpperCase()})`);
+  };
+
   const scrollToSection = (id) => {
     setMenuOpen(false);
     const el = document.getElementById(id);
@@ -649,26 +457,25 @@ export default function App() {
     window.scrollTo({ top: offsetPosition, behavior: "smooth" });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    showToast("✓ Message sent – thank you!");
+    setFormData({ name: "", email: "", message: "" });
+  };
+
   useEffect(() => {
     const stored = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    setIsDark(stored ? stored === "dark" : prefersDark);
+    if (stored === "light") setIsDark(false);
   }, []);
 
   useEffect(() => {
-    const root = document.documentElement;
     if (isDark) {
-      root.classList.add("dark");
+      document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
     } else {
-      root.classList.remove("dark");
+      document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
-
-    // Animate theme transition
-    root.style.transition = "background-color 0.5s ease, color 0.5s ease";
   }, [isDark]);
 
   useEffect(() => {
@@ -680,8 +487,6 @@ export default function App() {
         "stats",
         "experience",
         "publications",
-        "cv-download",
-        "lms",
         "contact",
       ];
       const scrollPos = window.scrollY + 180;
@@ -718,11 +523,8 @@ export default function App() {
           }}
         />
 
-        {/* Background effects */}
-        <div
-          className="fixed inset-0 z-0 opacity-70 dark:opacity-30"
-          aria-hidden="true"
-        >
+        {/* Background English vibe: subtle grid + moving gradient arc */}
+        <div className="fixed inset-0 z-0 opacity-70 dark:opacity-30">
           <div
             className="absolute inset-0"
             style={{
@@ -743,8 +545,6 @@ export default function App() {
 
         {/* Toast */}
         <div
-          role="alert"
-          aria-live="polite"
           className={`fixed top-24 right-5 z-[70] transition-all duration-500 ${
             toast.show
               ? "translate-x-0 opacity-100"
@@ -764,15 +564,12 @@ export default function App() {
               ? "bg-white/85 dark:bg-slate-950/90 backdrop-blur-2xl border-b border-slate-200/80 dark:border-slate-800 shadow-lg"
               : "bg-transparent"
           }`}
-          role="navigation"
-          aria-label="Main navigation"
         >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 md:py-4 flex items-center justify-between">
             {/* Logo */}
             <button
               onClick={() => scrollToSection("home")}
-              className="flex items-center gap-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 rounded-xl"
-              aria-label="Go to home section"
+              className="flex items-center gap-3 group focus-visible:outline-none"
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-sky-500 rounded-2xl blur-md opacity-70 group-hover:opacity-100 transition-opacity" />
@@ -792,56 +589,36 @@ export default function App() {
 
             {/* Desktop nav */}
             <div className="hidden lg:flex items-center gap-1">
-              {[
-                "Home",
-                "About",
-                "Experience",
-                "CV Download",
-                "LMS",
-                "Contact",
-              ].map((item) => {
-                const id = item.toLowerCase().replace(" ", "-");
-                return (
-                  <button
-                    key={item}
-                    onClick={() => scrollToSection(id)}
-                    className={`px-4 py-2 rounded-xl text-xs md:text-sm font-medium tracking-wide transition-all ${
-                      activeSection === id
-                        ? "bg-emerald-500/12 text-emerald-600 dark:text-emerald-300 border border-emerald-400/60"
-                        : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-white/5"
-                    }`}
-                  >
-                    {item}
-                  </button>
-                );
-              })}
+              {["Home", "About", "Experience", "Publications", "Contact"].map(
+                (item) => {
+                  const id = item.toLowerCase();
+                  return (
+                    <button
+                      key={item}
+                      onClick={() => scrollToSection(id)}
+                      className={`px-4 py-2 rounded-xl text-xs md:text-sm font-medium tracking-wide transition-all ${
+                        activeSection === id
+                          ? "bg-emerald-500/12 text-emerald-600 dark:text-emerald-300 border border-emerald-400/60"
+                          : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/80 dark:hover:bg-white/5"
+                      }`}
+                    >
+                      {item}
+                    </button>
+                  );
+                }
+              )}
 
               {/* Theme toggle */}
               <button
                 onClick={() => setIsDark((d) => !d)}
-                className="ml-4 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all group"
-                aria-label={
-                  isDark ? "Switch to light mode" : "Switch to dark mode"
-                }
+                className="ml-4 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
+                aria-label="Toggle light / dark mode"
               >
-                <div className="relative w-5 h-5">
-                  <Sun
-                    size={18}
-                    className={`absolute inset-0 text-amber-500 transition-all duration-500 ${
-                      isDark
-                        ? "opacity-0 rotate-90 scale-0"
-                        : "opacity-100 rotate-0 scale-100"
-                    }`}
-                  />
-                  <Moon
-                    size={18}
-                    className={`absolute inset-0 text-slate-400 transition-all duration-500 ${
-                      isDark
-                        ? "opacity-100 rotate-0 scale-100"
-                        : "opacity-0 -rotate-90 scale-0"
-                    }`}
-                  />
-                </div>
+                {isDark ? (
+                  <Sun size={18} className="text-amber-300" />
+                ) : (
+                  <Moon size={18} className="text-slate-700" />
+                )}
               </button>
 
               {/* LinkedIn */}
@@ -850,7 +627,6 @@ export default function App() {
                 target="_blank"
                 rel="noreferrer noopener"
                 className="ml-2 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-sky-600 hover:bg-sky-700 text-white transition-all flex items-center justify-center"
-                aria-label="Visit LinkedIn profile"
               >
                 <Linkedin size={18} />
               </a>
@@ -861,34 +637,18 @@ export default function App() {
               <button
                 onClick={() => setIsDark((d) => !d)}
                 className="p-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-white/5"
-                aria-label={
-                  isDark ? "Switch to light mode" : "Switch to dark mode"
-                }
+                aria-label="Toggle light / dark mode"
               >
-                <div className="relative w-5 h-5">
-                  <Sun
-                    size={18}
-                    className={`absolute inset-0 text-amber-500 transition-all duration-500 ${
-                      isDark
-                        ? "opacity-0 rotate-90 scale-0"
-                        : "opacity-100 rotate-0 scale-100"
-                    }`}
-                  />
-                  <Moon
-                    size={18}
-                    className={`absolute inset-0 text-slate-400 transition-all duration-500 ${
-                      isDark
-                        ? "opacity-100 rotate-0 scale-100"
-                        : "opacity-0 -rotate-90 scale-0"
-                    }`}
-                  />
-                </div>
+                {isDark ? (
+                  <Sun size={18} className="text-amber-300" />
+                ) : (
+                  <Moon size={18} className="text-slate-700" />
+                )}
               </button>
               <button
                 onClick={() => setMenuOpen((o) => !o)}
                 className="p-2 text-slate-700 dark:text-slate-200"
-                aria-label={menuOpen ? "Close menu" : "Open menu"}
-                aria-expanded={menuOpen}
+                aria-label="Toggle navigation"
               >
                 {menuOpen ? <X size={26} /> : <Menu size={26} />}
               </button>
@@ -898,29 +658,24 @@ export default function App() {
           {/* Mobile menu */}
           <div
             className={`lg:hidden overflow-hidden transition-all duration-400 border-t border-slate-200/70 dark:border-slate-800/80 bg-white/95 dark:bg-slate-950/95 backdrop-blur-2xl ${
-              menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+              menuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
             }`}
           >
             <div className="px-4 pt-2 pb-4 space-y-1">
-              {[
-                "Home",
-                "About",
-                "Experience",
-                "CV Download",
-                "LMS",
-                "Contact",
-              ].map((item) => {
-                const id = item.toLowerCase().replace(" ", "-");
-                return (
-                  <button
-                    key={item}
-                    onClick={() => scrollToSection(id)}
-                    className="w-full text-left text-sm font-medium text-slate-700 dark:text-slate-200 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 px-3"
-                  >
-                    {item}
-                  </button>
-                );
-              })}
+              {["Home", "About", "Experience", "Publications", "Contact"].map(
+                (item) => {
+                  const id = item.toLowerCase();
+                  return (
+                    <button
+                      key={item}
+                      onClick={() => scrollToSection(id)}
+                      className="w-full text-left text-sm font-medium text-slate-700 dark:text-slate-200 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-white/5 px-3"
+                    >
+                      {item}
+                    </button>
+                  );
+                }
+              )}
               <a
                 href={CONFIG.contact.linkedin}
                 target="_blank"
@@ -941,7 +696,6 @@ export default function App() {
           <div
             className="absolute top-16 right-[12%] w-40 md:w-52 h-40 md:h-52 rounded-full border border-emerald-400/35 shadow-[0_0_45px_rgba(16,185,129,0.6)]"
             style={{ transform: `translateY(${parallaxOffset * 0.08}px)` }}
-            aria-hidden="true"
           />
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="grid lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] gap-12 lg:gap-20 items-center">
@@ -1002,10 +756,10 @@ export default function App() {
                     />
                   </button>
                   <button
-                    onClick={() => scrollToSection("cv-download")}
+                    onClick={() => scrollToSection("experience")}
                     className="inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-3.5 rounded-2xl border border-slate-300/80 dark:border-slate-600 bg-white/80 dark:bg-white/5 text-sm md:text-base font-semibold text-slate-800 dark:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
                   >
-                    Download CV
+                    View Experience
                   </button>
                 </div>
 
@@ -1034,9 +788,8 @@ export default function App() {
                   <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[360px] lg:h-[360px] xl:w-[420px] xl:h-[420px] rounded-full overflow-hidden border-[6px] border-white/80 dark:border-emerald-500/40 shadow-[0_40px_80px_rgba(15,23,42,0.65)] bg-slate-900">
                     <img
                       src={CONFIG.image}
-                      alt="Dr Mehraban Hamavandy - PhD qualified ESOL and EAL teacher in London"
+                      alt="Dr Mehraban Hamavandy – PhD TESL, London"
                       className="w-full h-full object-cover"
-                      loading="eager"
                       onError={(e) => {
                         e.target.src =
                           "https://via.placeholder.com/420x420/0f172a/10b981?text=MH";
@@ -1075,10 +828,7 @@ export default function App() {
 
             {/* Scroll hint */}
             <div className="mt-10 md:mt-12 flex justify-center">
-              <ChevronDown
-                className="w-7 h-7 text-slate-400 animate-bounce-slow"
-                aria-hidden="true"
-              />
+              <ChevronDown className="w-7 h-7 text-slate-400 animate-bounce-slow" />
             </div>
           </div>
         </section>
@@ -1267,7 +1017,6 @@ export default function App() {
                             ? "bg-emerald-500 shadow-[0_0_14px_rgba(16,185,129,0.9)] animate-pulse"
                             : "bg-slate-400"
                         }`}
-                        aria-hidden="true"
                       />
                       <div className="flex-1">
                         <h4 className="text-sm md:text-base font-semibold text-slate-900 dark:text-white mb-1">
@@ -1291,20 +1040,17 @@ export default function App() {
           </div>
         </section>
 
-        {/* EXPERIENCE - keeping original for space */}
+        {/* EXPERIENCE */}
         <section id="experience" className="py-20 md:py-28">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <SectionHeader
               title="Professional Journey"
-              subtitle="From university lecturer to London-based EAL, ESOL and interpreting support – always centred on learners' voices."
+              subtitle="From university lecturer to London-based EAL, ESOL and interpreting support – always centred on learners’ voices."
               icon={Briefcase}
             />
 
             <div className="relative max-w-5xl mx-auto">
-              <div
-                className="absolute left-6 md:left-1/2 top-2 bottom-4 w-px bg-gradient-to-b from-emerald-500/70 via-slate-300/60 dark:via-slate-700 to-transparent pointer-events-none"
-                aria-hidden="true"
-              />
+              <div className="absolute left-6 md:left-1/2 top-2 bottom-4 w-px bg-gradient-to-b from-emerald-500/70 via-slate-300/60 dark:via-slate-700 to-transparent pointer-events-none" />
               {[
                 {
                   role: "Freelance Interpreter",
@@ -1370,7 +1116,7 @@ export default function App() {
                 const [ref, visible] = useScrollReveal();
                 const leftSide = index % 2 === 0;
                 return (
-                  <article
+                  <div
                     key={job.role}
                     ref={ref}
                     className={`relative mb-16 md:mb-20 flex items-start ${
@@ -1423,7 +1169,7 @@ export default function App() {
                         </div>
                       </GlassCard>
                     </div>
-                  </article>
+                  </div>
                 );
               })}
             </div>
@@ -1433,9 +1179,9 @@ export default function App() {
         {/* PUBLICATIONS */}
         <section
           id="publications"
-          className="py-20 md:py-28 bg-gradient-to-b from-slate-100 to-white dark:from-slate-900 dark:to-slate-950"
+          className="py-20 md:py-28 bg-gradient-to-b from-slate-100 to-white dark:from-slate-900 dark:to-slate-950 "
         >
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 ">
             <SectionHeader
               title="Research & Publications"
               subtitle="Researching language assessment, pedagogy and IELTS preparation – with publications in English-language teaching and testing."
@@ -1506,217 +1252,47 @@ export default function App() {
           </div>
         </section>
 
-        {/* CV DOWNLOAD SECTION */}
-        <section
-          id="cv-download"
-          className="py-20 md:py-28 bg-gradient-to-b from-white to-slate-50 dark:from-slate-950 dark:to-slate-900"
-        >
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              title="Download My CV"
-              subtitle="Choose the CV format that best matches your needs - tailored for different roles in UK education"
-              icon={FileDown}
-            />
-
-            <div className="grid md:grid-cols-3 gap-6 md:gap-8">
-              {CONFIG.resumes.map((cv, index) => (
-                <CVDownloadCard key={cv.id} cv={cv} index={index} />
-              ))}
-            </div>
-
-            <div className="mt-12 text-center">
-              <GlassCard className="!p-6 md:!p-8 max-w-3xl mx-auto">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-amber-400/60 shrink-0">
-                    <Sparkles
-                      className="text-amber-600 dark:text-amber-300"
-                      size={24}
-                    />
-                  </div>
-                  <div className="text-left flex-1">
-                    <h3 className="text-lg md:text-xl font-display font-bold text-slate-900 dark:text-white mb-2">
-                      Need a Custom Version?
-                    </h3>
-                    <p className="text-sm md:text-base text-slate-700 dark:text-slate-200 mb-4">
-                      I can provide a tailored CV highlighting specific skills
-                      for your role requirements. All CVs include UK references,
-                      DBS status, and detailed qualification breakdowns.
-                    </p>
-                    <button
-                      onClick={() => scrollToSection("contact")}
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-600 dark:text-emerald-300 hover:gap-3 transition-all"
-                    >
-                      Contact me for a custom CV
-                      <ArrowRight size={16} />
-                    </button>
-                  </div>
-                </div>
-              </GlassCard>
-            </div>
-          </div>
-        </section>
-
-        {/* HAMAVANDY LMS SECTION */}
-        <section id="lms" className="py-20 md:py-28 relative overflow-hidden">
-          {/* Animated background */}
-          <div
-            className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-sky-500/10 to-purple-500/10 dark:from-emerald-500/5 dark:via-sky-500/5 dark:to-purple-500/5"
-            aria-hidden="true"
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 2px 2px, rgba(16,185,129,0.15) 1px, transparent 0)",
-              backgroundSize: "48px 48px",
-            }}
-            aria-hidden="true"
-          />
-
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center mb-12 md:mb-16">
-              <div className="inline-flex items-center gap-3 mb-5 md:mb-6">
-                <div className="p-3 bg-gradient-to-br from-emerald-500/20 to-sky-500/20 rounded-2xl border border-emerald-500/40 shadow-md">
-                  <School className="text-emerald-500" size={26} />
-                </div>
+        {/* DOWNLOAD CV */}
+        <section className="py-20 md:py-24">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <GlassCard className="text-center !p-10 md:!p-14 border-2 border-emerald-400/40">
+              <div className="inline-flex p-4 rounded-3xl bg-gradient-to-br from-emerald-500/20 to-sky-500/20 mb-6 md:mb-8">
+                <FileDown
+                  size={40}
+                  className="text-emerald-600 dark:text-emerald-300"
+                />
               </div>
-              <h2 className="text-4xl md:text-6xl font-display font-bold text-slate-900 dark:text-white mb-4 md:mb-6 relative inline-block tracking-tight">
-                Hamavandy LMS
-                <span className="absolute -bottom-3 left-1/4 right-1/4 h-[2px] bg-gradient-to-r from-emerald-400/0 via-emerald-400 to-emerald-400/0 rounded-full"></span>
-              </h2>
-              <p className="text-slate-600 dark:text-slate-300 text-base md:text-xl max-w-3xl mx-auto leading-relaxed mt-6 md:mt-8 font-light px-3">
-                A comprehensive Learning Management System designed for modern
-                English language learners
+              <h3 className="text-2xl md:text-3xl font-display font-bold text-slate-900 dark:text-white mb-4">
+                Download My CV
+              </h3>
+              <p className="text-sm md:text-base text-slate-700 dark:text-slate-200 mb-8 md:mb-10 max-w-2xl mx-auto">
+                Access a full overview of my UK-relevant qualifications,
+                experience and referees in your preferred format.
               </p>
-            </div>
-
-            <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center mb-12">
-              {/* Features */}
-              <div className="space-y-6">
-                <GlassCard className="group hover:border-emerald-400/70">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-emerald-400/60 shrink-0">
-                      <Rocket
-                        className="text-emerald-600 dark:text-emerald-300"
-                        size={24}
-                      />
-                    </div>
-                    <div>
-                      <h3 className="text-lg md:text-xl font-display font-bold text-slate-900 dark:text-white mb-2">
-                        Interactive Learning Experience
-                      </h3>
-                      <p className="text-sm md:text-base text-slate-700 dark:text-slate-200 leading-relaxed">
-                        Engaging lessons, quizzes, and multimedia content
-                        designed to accelerate your English proficiency
-                      </p>
-                    </div>
-                  </div>
-                </GlassCard>
-
-                <GlassCard className="group hover:border-sky-400/70">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-xl bg-gradient-to-br from-sky-500/20 to-blue-500/20 border border-sky-400/60 shrink-0">
-                      <Target
-                        className="text-sky-600 dark:text-sky-300"
-                        size={24}
-                      />
-                    </div>
-                    <div>
-                      <h3 className="text-lg md:text-xl font-display font-bold text-slate-900 dark:text-white mb-2">
-                        IELTS Preparation
-                      </h3>
-                      <p className="text-sm md:text-base text-slate-700 dark:text-slate-200 leading-relaxed">
-                        Specialized IELTS courses with practice tests, scoring
-                        feedback, and exam strategies
-                      </p>
-                    </div>
-                  </div>
-                </GlassCard>
-
-                <GlassCard className="group hover:border-purple-400/70">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-xl bg-gradient-to-br from-purple-500/20 to-fuchsia-500/20 border border-purple-400/60 shrink-0">
-                      <Users
-                        className="text-purple-600 dark:text-purple-300"
-                        size={24}
-                      />
-                    </div>
-                    <div>
-                      <h3 className="text-lg md:text-xl font-display font-bold text-slate-900 dark:text-white mb-2">
-                        Expert-Led Instruction
-                      </h3>
-                      <p className="text-sm md:text-base text-slate-700 dark:text-slate-200 leading-relaxed">
-                        Learn from PhD-qualified educators with decades of
-                        teaching experience
-                      </p>
-                    </div>
-                  </div>
-                </GlassCard>
+              <div className="flex flex-wrap justify-center gap-4">
+                <button
+                  onClick={() => downloadResume("pdf")}
+                  className="group inline-flex items-center gap-2 md:gap-3 px-7 md:px-9 py-3 md:py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-sky-500 text-white text-sm md:text-base font-semibold shadow-[0_18px_40px_rgba(16,185,129,0.4)] hover:shadow-[0_22px_55px_rgba(16,185,129,0.6)] hover:-translate-y-[2px] transition-all"
+                >
+                  <Download size={20} />
+                  Download PDF
+                  <span className="text-[10px] md:text-xs bg-white/25 px-2.5 py-1 rounded-lg">
+                    Recommended
+                  </span>
+                </button>
+                <button
+                  onClick={() => downloadResume("word")}
+                  className="inline-flex items-center gap-2 md:gap-3 px-7 md:px-9 py-3 md:py-3.5 rounded-2xl border-2 border-slate-300 dark:border-slate-600 bg-white/90 dark:bg-white/5 text-sm md:text-base font-semibold text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
+                >
+                  <FileText size={20} />
+                  Download Word
+                </button>
               </div>
-
-              {/* CTA Card */}
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-sky-500/20 rounded-3xl blur-2xl animate-pulse-glow" />
-                <GlassCard className="relative border-2 border-emerald-400/60 !p-8 md:!p-12 text-center">
-                  <div className="inline-flex p-5 rounded-3xl bg-gradient-to-br from-emerald-500/30 to-sky-500/30 mb-6 border-2 border-emerald-400/60">
-                    <School
-                      size={48}
-                      className="text-emerald-600 dark:text-emerald-300"
-                    />
-                  </div>
-
-                  <h3 className="text-2xl md:text-3xl font-display font-bold text-slate-900 dark:text-white mb-4">
-                    Start Learning Today
-                  </h3>
-
-                  <p className="text-base md:text-lg text-slate-700 dark:text-slate-200 mb-8 leading-relaxed">
-                    Join thousands of students improving their English with
-                    Hamavandy LMS. Flexible learning at your own pace.
-                  </p>
-
-                  <div className="space-y-4">
-                    <a
-                      href={CONFIG.lms.url}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="group/lms w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-sky-500 text-white text-base md:text-lg font-bold shadow-[0_20px_50px_rgba(16,185,129,0.5)] hover:shadow-[0_25px_70px_rgba(16,185,129,0.7)] hover:-translate-y-1 transition-all"
-                    >
-                      <Rocket
-                        size={22}
-                        className="group-hover/lms:rotate-12 transition-transform"
-                      />
-                      Visit Hamavandy LMS
-                      <ExternalLink
-                        size={20}
-                        className="group-hover/lms:translate-x-1 group-hover/lms:-translate-y-1 transition-transform"
-                      />
-                    </a>
-
-                    <div className="flex items-center justify-center gap-6 text-xs md:text-sm text-slate-600 dark:text-slate-300">
-                      <div className="flex items-center gap-2">
-                        <Check size={16} className="text-emerald-500" />
-                        <span>Free Trial</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Check size={16} className="text-emerald-500" />
-                        <span>24/7 Access</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Check size={16} className="text-emerald-500" />
-                        <span>Expert Support</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700">
-                    <p className="text-xs text-slate-500 dark:text-slate-400 italic">
-                      "Transform your English skills with a platform built by
-                      educators, for learners"
-                    </p>
-                  </div>
-                </GlassCard>
-              </div>
-            </div>
+              <p className="text-[11px] md:text-xs text-slate-500 dark:text-slate-400 mt-6">
+                Includes UK referees, qualifications, safeguarding training and
+                contact details.
+              </p>
+            </GlassCard>
           </div>
         </section>
 
@@ -1821,7 +1397,7 @@ export default function App() {
                           Message on WhatsApp
                         </p>
                         <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
-                          Ideal for quick questions in فارسی, English or کوردی
+                          Ideal for quick questions in فارسی, English or
                         </p>
                       </div>
                       <ExternalLink
@@ -1884,55 +1460,162 @@ export default function App() {
                 </GlassCard>
               </div>
 
-              {/* Quick message card */}
+              {/* Contact form & references */}
               <div className="space-y-6 md:space-y-7">
                 <GlassCard className="!p-6 md:!p-7">
                   <h3 className="text-xl md:text-2xl font-display font-bold text-slate-900 dark:text-white mb-5 flex items-center gap-3">
                     <Send className="text-emerald-500" />
-                    Get In Touch
+                    Send a Message
                   </h3>
 
-                  <div className="space-y-4">
-                    <p className="text-sm md:text-base text-slate-700 dark:text-slate-200 leading-relaxed">
-                      I'm actively seeking opportunities in:
-                    </p>
+                  <form
+                    onSubmit={handleSubmit}
+                    className="space-y-4 md:space-y-5"
+                  >
+                    {/* Name */}
+                    <div>
+                      <label className="block text-xs md:text-sm font-semibold text-slate-600 dark:text-slate-300 mb-1.5">
+                        Your Name
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) =>
+                          setFormData({ ...formData, name: e.target.value })
+                        }
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-700 text-sm md:text-base text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
+                        placeholder="Your full name"
+                      />
+                    </div>
 
-                    <div className="grid gap-3">
-                      {[
-                        "Teaching roles in UK primary & secondary schools",
-                        "ESOL / EAL tutoring (online or in-person)",
-                        "IELTS preparation for international students",
-                        "Translation & interpreting (Farsi/Kurdish/English)",
-                        "Educational assessment & curriculum design",
-                      ].map((item, i) => (
-                        <div
-                          key={i}
-                          className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-200"
+                    {/* Email */}
+                    <div>
+                      <label className="block text-xs md:text-sm font-semibold text-slate-600 dark:text-slate-300 mb-1.5">
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) =>
+                          setFormData({ ...formData, email: e.target.value })
+                        }
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-700 text-sm md:text-base text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
+                        placeholder="you@example.com"
+                      />
+                    </div>
+
+                    {/* Type of enquiry + Service area */}
+                    <div className="grid gap-4 md:gap-5 md:grid-cols-2">
+                      <div>
+                        <label className="block text-xs md:text-sm font-semibold text-slate-600 dark:text-slate-300 mb-1.5">
+                          Type of Enquiry
+                        </label>
+                        <select
+                          value={formData.enquiryType}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              enquiryType: e.target.value,
+                            })
+                          }
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-700 text-xs md:text-sm text-slate-900 dark:text-white focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
                         >
-                          <Check
-                            size={18}
-                            className="text-emerald-500 shrink-0 mt-0.5"
-                          />
-                          <span>{item}</span>
-                        </div>
-                      ))}
+                          <option>Teaching role in a UK school</option>
+                          <option>
+                            Private English tuition (online / in-person)
+                          </option>
+                          <option>
+                            Translation / interpreting (Farsi / Kurdish /
+                            English)
+                          </option>
+                          <option>Academic / research collaboration</option>
+                          <option>Other enquiry</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-xs md:text-sm font-semibold text-slate-600 dark:text-slate-300 mb-1.5">
+                          Service Area
+                        </label>
+                        <select
+                          value={formData.serviceArea}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              serviceArea: e.target.value,
+                            })
+                          }
+                          className="w-full px-3.5 py-2.5 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-700 text-xs md:text-sm text-slate-900 dark:text-white focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
+                        >
+                          <option>EAL / ESOL support</option>
+                          <option>SEND & behaviour support</option>
+                          <option>IELTS / exam preparation</option>
+                          <option>Translation & interpreting</option>
+                          <option>Curriculum / assessment design</option>
+                        </select>
+                      </div>
                     </div>
 
-                    <div className="pt-4 border-t border-slate-200 dark:border-slate-700">
-                      <p className="text-sm text-slate-600 dark:text-slate-300 mb-4">
-                        Please use any of the contact methods on the left, or
-                        email me directly to discuss opportunities.
-                      </p>
-
-                      <a
-                        href={`mailto:${CONFIG.contact.email}`}
-                        className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-sky-500 text-white text-sm md:text-base font-semibold shadow-[0_18px_40px_rgba(16,185,129,0.4)] hover:-translate-y-[1px] hover:shadow-[0_22px_55px_rgba(16,185,129,0.6)] transition-all"
-                      >
-                        <Mail size={18} />
-                        Email Me Directly
-                      </a>
+                    {/* Preferred contact method */}
+                    <div>
+                      <label className="block text-xs md:text-sm font-semibold text-slate-600 dark:text-slate-300 mb-1.5">
+                        Preferred Contact Method
+                      </label>
+                      <div className="flex flex-wrap gap-2 mt-1">
+                        {["Email", "Phone", "WhatsApp"].map((method) => {
+                          const active = formData.preferredContact === method;
+                          return (
+                            <button
+                              key={method}
+                              type="button"
+                              onClick={() =>
+                                setFormData({
+                                  ...formData,
+                                  preferredContact: method,
+                                })
+                              }
+                              className={`px-3 py-1.5 rounded-full text-xs md:text-sm font-medium border transition-all
+                ${
+                  active
+                    ? "border-emerald-500 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300"
+                    : "border-slate-300 text-slate-600 hover:border-emerald-400 hover:text-emerald-700 dark:border-slate-700 dark:text-slate-300"
+                }`}
+                            >
+                              {method}
+                            </button>
+                          );
+                        })}
+                      </div>
                     </div>
-                  </div>
+
+                    {/* Message */}
+                    <div>
+                      <label className="block text-xs md:text-sm font-semibold text-slate-600 dark:text-slate-300 mb-1.5">
+                        Message
+                      </label>
+                      <textarea
+                        rows={5}
+                        required
+                        value={formData.message}
+                        onChange={(e) =>
+                          setFormData({ ...formData, message: e.target.value })
+                        }
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-white/80 dark:bg-slate-900/60 border border-slate-300 dark:border-slate-700 text-sm md:text-base text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 resize-none"
+                        placeholder="Tell me briefly about the role, pupils or context in your school…"
+                      />
+                    </div>
+
+                    {/* Submit */}
+                    <button
+                      type="submit"
+                      className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 md:py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-sky-500 text-white text-sm md:text-base font-semibold shadow-[0_18px_40px_rgba(16,185,129,0.4)] hover:-translate-y-[1px] hover:shadow-[0_22px_55px_rgba(16,185,129,0.6)] transition-all"
+                    >
+                      <Send size={18} />
+                      Send Message
+                    </button>
+                  </form>
 
                   <div className="mt-6 pt-5 border-t border-slate-200 dark:border-slate-700 text-center">
                     <Quote
@@ -1940,8 +1623,8 @@ export default function App() {
                       className="text-emerald-500/40 mx-auto mb-2"
                     />
                     <p className="text-xs md:text-sm text-slate-600 dark:text-slate-300 italic">
-                      "Education is the most powerful weapon which you can use
-                      to change the world."
+                      “Education is the most powerful weapon which you can use
+                      to change the world.”
                     </p>
                     <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
                       — Nelson Mandela
@@ -1949,11 +1632,11 @@ export default function App() {
                   </div>
                 </GlassCard>
 
-                {/* References summary */}
+                {/* Brief references summary to save space but keep UK flavour */}
                 <GlassCard className="!p-6 md:!p-7">
                   <h3 className="text-lg md:text-xl font-display font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-3">
                     <Users className="text-emerald-500" />
-                    Professional References
+                    Selected Professional References
                   </h3>
                   <div className="space-y-4 text-xs md:text-sm">
                     <div className="border-l-4 border-emerald-500/70 pl-4">
@@ -2020,14 +1703,12 @@ export default function App() {
                 target="_blank"
                 rel="noreferrer noopener"
                 className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white hover:bg-[#0077b5] hover:text-white hover:border-[#0077b5] transition-all"
-                aria-label="LinkedIn profile"
               >
                 <Linkedin size={18} />
               </a>
               <a
                 href={`mailto:${CONFIG.contact.email}`}
                 className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white hover:bg-emerald-500 hover:text-white hover:border-emerald-500 transition-all"
-                aria-label="Send email"
               >
                 <Mail size={18} />
               </a>
@@ -2036,7 +1717,6 @@ export default function App() {
                 target="_blank"
                 rel="noreferrer noopener"
                 className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white hover:bg-sky-500 hover:text-white hover:border-sky-500 transition-all"
-                aria-label="Google Scholar profile"
               >
                 <BookOpen size={18} />
               </a>
@@ -2047,32 +1727,17 @@ export default function App() {
                 Focus areas: EAL · ESOL · SEND · Behaviour Support ·
                 Safeguarding · IELTS · Farsi / Kurdish / English Interpreting
               </p>
-              <p className="mb-2">
+              <p>
                 © {new Date().getFullYear()} Mehraban Hamavandy. All rights
                 reserved.
-              </p>
-              <p className="text-[10px]">
-                Developed by{" "}
-                <a
-                  href="https://omnilertlab.com"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="text-emerald-600 dark:text-emerald-400 hover:underline font-semibold"
-                >
-                  OmnilertLab
-                </a>
               </p>
             </div>
           </div>
         </footer>
 
-        {/* GLOBAL STYLES */}
+        {/* GLOBAL STYLES (animations, cursor, scroll, etc.) */}
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap');
-
-          * {
-            -webkit-tap-highlight-color: transparent;
-          }
 
           .font-display { font-family: 'Playfair Display', serif; }
           .font-body { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
@@ -2140,10 +1805,6 @@ export default function App() {
             scroll-behavior: smooth;
           }
 
-          body {
-            overscroll-behavior: none;
-          }
-
           ::-webkit-scrollbar {
             width: 10px;
           }
@@ -2161,12 +1822,7 @@ export default function App() {
             color: #ffffff;
           }
 
-          img { 
-            max-width: 100%; 
-            height: auto;
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-          }
+          img { max-width: 100%; height: auto; }
 
           button:focus-visible,
           a:focus-visible,
@@ -2174,62 +1830,6 @@ export default function App() {
           textarea:focus-visible {
             outline: 2px solid rgba(16,185,129,0.7);
             outline-offset: 2px;
-          }
-
-          /* Smooth theme transition */
-          * {
-            transition-property: background-color, border-color, color;
-            transition-duration: 0.3s;
-            transition-timing-function: ease-in-out;
-          }
-
-          /* Mobile optimization */
-          @media (max-width: 640px) {
-            html {
-              font-size: 15px;
-            }
-          }
-
-          /* Performance optimization */
-          .will-change-transform {
-            will-change: transform;
-          }
-
-          /* Reduce motion for accessibility */
-          @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-              animation-duration: 0.01ms !important;
-              animation-iteration-count: 1 !important;
-              transition-duration: 0.01ms !important;
-            }
-          }
-
-          /* Loading optimization */
-          @media (prefers-reduced-data: reduce) {
-            * {
-              animation-duration: 0s !important;
-              transition-duration: 0s !important;
-            }
-          }
-
-          /* High contrast mode support */
-          @media (prefers-contrast: high) {
-            .custom-cursor,
-            .custom-cursor-dot {
-              display: none;
-            }
-          }
-
-          /* Print styles */
-          @media print {
-            .custom-cursor,
-            .custom-cursor-dot,
-            nav,
-            footer {
-              display: none !important;
-            }
           }
         `}</style>
       </div>
