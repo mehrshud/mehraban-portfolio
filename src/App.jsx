@@ -41,6 +41,10 @@ import {
   Check,
   FileType,
   Rocket,
+  Facebook,
+  Twitter,
+  Instagram,
+  Youtube,
 } from "lucide-react";
 
 /* -------------------------------------------------------------------------- */
@@ -2001,11 +2005,14 @@ export default function App() {
         </section>
 
         {/* FOOTER */}
+        {/* FOOTER */}
         <footer className="py-12 md:py-14 border-t border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-950/95 backdrop-blur-xl">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-5">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-6">
+            {/* Brand / back to top */}
             <button
               onClick={() => scrollToSection("home")}
               className="flex items-center gap-3 group"
+              aria-label="Back to top"
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-sky-500 rounded-2xl blur-md opacity-70 group-hover:opacity-100 transition-opacity" />
@@ -2018,12 +2025,36 @@ export default function App() {
                   Mehraban Hamavandy
                 </p>
                 <p className="text-[11px] md:text-xs text-emerald-600 dark:text-emerald-300">
-                  PhD TESL · EAL & SEND Specialist · London, UK
+                  PhD TESL · EAL, ESOL & SEND Specialist · London, UK
                 </p>
               </div>
             </button>
 
-            <div className="flex gap-4">
+            {/* Quick nav links */}
+            <nav
+              className="flex flex-wrap justify-center gap-3 text-[11px] md:text-xs text-slate-600 dark:text-slate-300"
+              aria-label="Footer navigation"
+            >
+              {[
+                ["Home", "home"],
+                ["About", "about"],
+                ["Experience", "experience"],
+                ["CV Download", "cv-download"],
+                ["Hamavandy LMS", "lms"],
+                ["Contact", "contact"],
+              ].map(([label, id]) => (
+                <button
+                  key={id}
+                  onClick={() => scrollToSection(id)}
+                  className="px-3 py-1 rounded-full border border-slate-200/70 dark:border-slate-700/70 bg-slate-50/80 dark:bg-white/5 hover:border-emerald-500/70 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all"
+                >
+                  {label}
+                </button>
+              ))}
+            </nav>
+
+            {/* Social & contact icons */}
+            <div className="flex flex-wrap justify-center gap-3">
               <a
                 href={CONFIG.contact.linkedin}
                 target="_blank"
@@ -2049,14 +2080,54 @@ export default function App() {
               >
                 <BookOpen size={18} />
               </a>
+
+              {/* Optional social profiles – swap URLs when ready */}
+              <a
+                href="https://facebook.com/"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white hover:bg-[#1877f2] hover:text-white hover:border-[#1877f2] transition-all"
+                aria-label="Facebook page"
+              >
+                <Facebook size={18} />
+              </a>
+              <a
+                href="https://x.com/"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white hover:bg-slate-900 hover:text-white hover:border-slate-900 transition-all"
+                aria-label="X (Twitter) profile"
+              >
+                <Twitter size={18} />
+              </a>
+              <a
+                href="https://instagram.com/"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white hover:bg-gradient-to-tr hover:from-pink-500 hover:via-red-500 hover:to-yellow-500 hover:text-white hover:border-transparent transition-all"
+                aria-label="Instagram profile"
+              >
+                <Instagram size={18} />
+              </a>
+              <a
+                href="https://youtube.com/"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white hover:bg-[#ff0000] hover:text-white hover:border-[#ff0000] transition-all"
+                aria-label="YouTube channel"
+              >
+                <Youtube size={18} />
+              </a>
             </div>
 
-            <div className="text-center text-[11px] md:text-xs text-slate-500 dark:text-slate-400">
-              <p className="mb-1">
-                Focus areas: EAL · ESOL · SEND · Behaviour Support ·
-                Safeguarding · IELTS · Farsi / Kurdish / English Interpreting
+            {/* Text / SEO line */}
+            <div className="text-center text-[11px] md:text-xs text-slate-500 dark:text-slate-400 space-y-1">
+              <p>
+                PhD-qualified ESOL & EAL teacher in London specialising in SEND
+                support, behaviour management, safeguarding, IELTS preparation
+                and Farsi / Kurdish / English interpreting.
               </p>
-              <p className="mb-2">
+              <p>
                 © {new Date().getFullYear()} Mehraban Hamavandy. All rights
                 reserved.
               </p>
