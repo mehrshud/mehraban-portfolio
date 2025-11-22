@@ -55,7 +55,7 @@ const CONFIG = {
   name: "Mehraban Hamavandy",
   title: "PhD Education Professional",
   subtitle: "Specialist in EAL, SEND, Behaviour Support & Translation",
-  image: "/image.png",
+  image: "/image.webp",
   contact: {
     email: "hamavandy.me@gmail.com",
     phone: "+44 7575 948458",
@@ -84,10 +84,10 @@ const CONFIG = {
       id: "ta",
       title: "Teaching Assistant CV",
       description: "Focused on EAL support, SEND & behaviour management",
-      format: "DOCX",
+      format: "PDF",
       icon: Users,
       color: "blue",
-      fileUrl: "/Mehraban-Hamavandy-TA-CV.docx",
+      fileUrl: "/Mehraban-Hamavandy-TA-CV.pdf",
       highlights: ["SEND support", "Safeguarding Level 2", "Behaviour support"],
     },
     {
@@ -990,10 +990,6 @@ export default function App() {
                       behaviour support, safeguarding, and IELTS preparation
                     </span>{" "}
                     for migrants and asylum seekers.
-                  </p>
-                  <p className="text-sm text-slate-600 dark:text-slate-300 mt-3 ">
-                    I work with learners of all ages across the UK and support
-                    schools through tailored EAL strategies.
                   </p>
                 </div>
 
@@ -2043,13 +2039,17 @@ export default function App() {
                 ["Hamavandy LMS", "lms"],
                 ["Contact", "contact"],
               ].map(([label, id]) => (
-                <button
+                <a
                   key={id}
-                  onClick={() => scrollToSection(id)}
+                  href={`#${id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(id);
+                  }}
                   className="px-3 py-1 rounded-full border border-slate-200/70 dark:border-slate-700/70 bg-slate-50/80 dark:bg-white/5 hover:border-emerald-500/70 hover:text-emerald-600 dark:hover:text-emerald-300 transition-all"
                 >
                   {label}
-                </button>
+                </a>
               ))}
             </nav>
 
