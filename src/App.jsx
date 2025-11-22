@@ -987,6 +987,10 @@ export default function App() {
                     </span>{" "}
                     for migrants and asylum seekers.
                   </p>
+                  <p className="text-sm text-slate-600 dark:text-slate-300 mt-3 ">
+                    I work with learners of all ages across the UK and support
+                    schools through tailored EAL strategies.
+                  </p>
                 </div>
 
                 {/* CTA buttons */}
@@ -1142,7 +1146,12 @@ export default function App() {
                     <span className="font-semibold">
                       EAL, ESOL, SEND support and behaviour management
                     </span>{" "}
-                    within British school settings.
+                    within British school settings. I specialise in teaching
+                    English to multilingual learners across the UK and focus on
+                    boosting literacy, fluency and confidence using
+                    evidence-based strategies. My approach integrates British
+                    curriculum standards, safeguarding practices and
+                    trauma-informed support for newly arrived pupils.
                   </p>
                   <p className="text-base md:text-lg text-slate-700 dark:text-slate-200 leading-relaxed">
                     My goal is to{" "}

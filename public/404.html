@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Page Not Found | Dr Mehraban Hamavandy</title>
+    <meta
+      name="description"
+      content="This page could not be found on Dr Mehraban Hamavandy’s portfolio site."
+    />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,follow" />
+
+    <!-- Tailwind via CDN just for the 404 page -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+
+      body {
+        min-height: 100vh;
+        background: radial-gradient(circle at top, #22c55e20, #020617 55%),
+          radial-gradient(circle at bottom, #0ea5e920, #020617 70%);
+        color: #e5e7eb;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter",
+          "Segoe UI", sans-serif;
+        overflow: hidden;
+      }
+
+      /* Floating gradient blobs */
+      .blob {
+        position: absolute;
+        border-radius: 999px;
+        filter: blur(60px);
+        opacity: 0.7;
+        mix-blend-mode: screen;
+        animation: float 16s ease-in-out infinite;
+      }
+
+      .blob:nth-child(1) {
+        width: 420px;
+        height: 420px;
+        background: radial-gradient(circle, #22c55e, transparent 60%);
+        top: -60px;
+        left: -60px;
+      }
+
+      .blob:nth-child(2) {
+        width: 380px;
+        height: 380px;
+        background: radial-gradient(circle, #0ea5e9, transparent 60%);
+        bottom: -80px;
+        right: -40px;
+        animation-delay: -6s;
+      }
+
+      .blob:nth-child(3) {
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, #a855f7, transparent 60%);
+        top: 40%;
+        left: 55%;
+        animation-delay: -10s;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        50% {
+          transform: translate3d(20px, -40px, 0) scale(1.08);
+        }
+      }
+
+      /* Animated gradient outline for the card */
+      .card-outline {
+        position: absolute;
+        inset: -1px;
+        border-radius: 1.75rem;
+        background: conic-gradient(
+          from 160deg,
+          #22c55e,
+          #0ea5e9,
+          #a855f7,
+          #22c55e
+        );
+        opacity: 0.85;
+        filter: blur(2px);
+        animation: spin 18s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Small glitch effect on the 404 text */
+      .glitch {
+        position: relative;
+      }
+
+      .glitch::before,
+      .glitch::after {
+        content: attr(data-text);
+        position: absolute;
+        inset: 0;
+        mix-blend-mode: screen;
+        opacity: 0.5;
+        pointer-events: none;
+      }
+
+      .glitch::before {
+        color: #22c55e;
+        transform: translate3px, -2px;
+        animation: glitch 2s infinite;
+      }
+
+      .glitch::after {
+        color: #0ea5e9;
+        transform: translate(-3px, 2px);
+        animation: glitch 2s infinite reverse;
+      }
+
+      @keyframes glitch {
+        0%,
+        100% {
+          clip-path: inset(0 0 0 0);
+          transform: translate(0, 0);
+        }
+        20% {
+          clip-path: inset(10% 0 40% 0);
+          transform: translate(-2px, -1px);
+        }
+        40% {
+          clip-path: inset(60% 0 5% 0);
+          transform: translate(2px, 1px);
+        }
+        60% {
+          clip-path: inset(30% 0 30% 0);
+          transform: translate(-2px, 2px);
+        }
+        80% {
+          clip-path: inset(5% 0 70% 0);
+          transform: translate(1px, -2px);
+        }
+      }
+
+      /* subtle grid */
+      .grid-bg::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: linear-gradient(
+            to right,
+            rgba(148, 163, 184, 0.12) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(148, 163, 184, 0.12) 1px,
+            transparent 1px
+          );
+        background-size: 46px 46px;
+        opacity: 0.35;
+        pointer-events: none;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="h-full flex items-center justify-center">
+    <!-- animated blobs in the background -->
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+
+    <main
+      class="relative grid-bg max-w-xl mx-4 sm:mx-6 w-full rounded-3xl overflow-hidden"
+      aria-labelledby="not-found-title"
+    >
+      <div class="card-outline"></div>
+
+      <div
+        class="relative bg-slate-900/95 backdrop-blur-xl border border-slate-700/70 rounded-3xl p-7 sm:p-9 shadow-2xl"
+      >
+        <!-- top badge -->
+        <div class="inline-flex items-center gap-3 mb-6">
+          <div
+            class="h-10 w-10 rounded-2xl bg-gradient-to-br from-emerald-500 to-sky-500 flex items-center justify-center text-slate-900 font-bold shadow-lg"
+          >
+            MH
+          </div>
+          <div class="text-left">
+            <p
+              class="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300"
+            >
+              Mehraban Hamavandy
+            </p>
+            <p class="text-[11px] text-slate-400">
+              PhD TESL · EAL, ESOL & IELTS Educator
+            </p>
+          </div>
+        </div>
+
+        <!-- 404 text -->
+        <p
+          class="text-xs font-semibold tracking-[0.22em] uppercase text-emerald-400 mb-3"
+        >
+          Error 404
+        </p>
+
+        <h1
+          id="not-found-title"
+          class="glitch text-5xl sm:text-6xl font-black tracking-tight text-slate-50 mb-4"
+          data-text="Page not found"
+        >
+          Page not found
+        </h1>
+
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed mb-6">
+          The page you’re looking for has moved, been updated, or never existed.
+          Please check the address or head back to the home page of Dr
+          Hamavandy’s portfolio.
+        </p>
+
+        <div class="space-y-3 mb-7">
+          <div class="flex items-center gap-2 text-xs text-slate-400">
+            <span
+              class="inline-flex h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)]"
+            ></span>
+            <span>Site is online and working normally.</span>
+          </div>
+          <div class="flex flex-wrap gap-2 text-[11px] text-slate-400">
+            <span
+              class="px-2.5 py-1 rounded-full border border-slate-600/70 bg-slate-800/80"
+              >EAL · ESOL · SEND · IELTS</span
+            >
+            <span
+              class="px-2.5 py-1 rounded-full border border-slate-600/70 bg-slate-800/80"
+              >London · United Kingdom</span
+            >
+          </div>
+        </div>
+
+        <!-- buttons -->
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="/"
+            class="group inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-sky-500 text-sm font-semibold text-slate-900 shadow-[0_18px_40px_rgba(16,185,129,0.45)] hover:-translate-y-[1px] hover:shadow-[0_22px_55px_rgba(16,185,129,0.65)] transition-transform"
+          >
+            Back to homepage
+            <span
+              class="inline-block group-hover:translate-x-1 transition-transform"
+              aria-hidden="true"
+              >↗</span
+            >
+          </a>
+
+          <a
+            href="https://hamavandy-lms.com"
+            class="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-2xl border border-slate-600/80 bg-slate-900/60 text-sm font-medium text-slate-200 hover:bg-slate-800/80 transition-colors"
+          >
+            Visit Hamavandy LMS
+          </a>
+        </div>
+
+        <p class="mt-7 text-[11px] text-slate-500">
+          If you believe this is a mistake, please contact
+          <a
+            href="mailto:hamavandy.me@gmail.com"
+            class="text-emerald-400 hover:text-emerald-300 underline-offset-2 hover:underline"
+            >hamavandy.me@gmail.com</a
+          >.
+        </p>
+      </div>
+    </main>
+  </body>
+</html>
