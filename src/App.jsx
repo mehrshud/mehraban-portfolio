@@ -128,7 +128,7 @@ const SEO = () => {
       "IELTS teacher London",
       "English teacher London",
       "Farsi English teacher",
-      "Kurdish English teacher",
+      "FrenchEnglish teacher",
       "SEND teaching assistant London",
       "behaviour support teacher",
       "Farsi English interpreter London",
@@ -222,7 +222,7 @@ const SEO = () => {
         { "@type": "Language", name: "Persian", alternateName: "fa" },
         { "@type": "Language", name: "Kurdish", alternateName: "ku" },
         { "@type": "Language", name: "Arabic", alternateName: "ar" },
-        { "@type": "Language", name: "Turkish", alternateName: "tr" },
+        { "@type": "Language", name: "", alternateName: "tr" },
       ],
       alumniOf: [
         {
@@ -1025,7 +1025,7 @@ export default function App() {
                   </div>
                   <div className="flex items-center gap-2">
                     <Languages size={16} className="text-emerald-500" />
-                    <span>English · فارسی · Arabic · Turkish</span>
+                    <span>English · فارسی · Arabic </span>
                   </div>
                 </div>
               </div>
@@ -1097,7 +1097,7 @@ export default function App() {
                 icon={TrendingUp}
               />
               <StatCard
-                number="50"
+                number="5"
                 label="Academic & professional publications"
                 icon={BookMarked}
                 delay={80}
@@ -1109,7 +1109,7 @@ export default function App() {
                 delay={160}
               />
               <StatCard
-                number="5"
+                number="3"
                 label="Languages for teaching & interpreting"
                 icon={Languages}
                 delay={240}
@@ -1124,11 +1124,7 @@ export default function App() {
           className="py-20 md:py-28 bg-gradient-to-b from-white/60 to-slate-100 dark:from-slate-950 dark:to-slate-900"
         >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              title="About Me"
-              subtitle="Bridging British academic standards with warm, culturally sensitive support for multilingual learners in UK schools and colleges."
-              icon={Lightbulb}
-            />
+            <SectionHeader title="About Me" icon={Lightbulb} />
             <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-start">
               <div className="space-y-8 md:space-y-10">
                 <GlassCard className="border-l-4 border-l-emerald-500">
@@ -1191,7 +1187,7 @@ export default function App() {
                       color="amber"
                     />
                     <SkillBadge
-                      label="Farsi · Kurdish · English interpreting"
+                      label="Farsi · French· English interpreting"
                       icon={Globe}
                       color="emerald"
                     />
@@ -1243,25 +1239,40 @@ export default function App() {
                     active: true,
                   },
                   {
+                    title: "Level 3 Award in Education and Training",
+                    org: "Lead Academy",
+                    sub: "A professional award for FE and Skills trainers",
+                    date: "2025",
+                    active: true,
+                  },
+                  {
+                    title:
+                      "Level 3 Certificate in the Principles of Special Education Needs",
+                    org: "Aspire Education Academy",
+                    sub: "A professional award in SEND support for children and young people.",
+                    date: "2025",
+                    active: true,
+                  },
+                  {
                     title: "NCFE CACHE Level 2 Safeguarding & Prevent",
                     org: "Aspire Education Academy (UK)",
                     sub: "Child protection & Prevent Duty",
                     date: "2025",
-                    active: false,
+                    active: true,
                   },
                   {
                     title: "NCFE CACHE Level 2 Behaviour Support",
                     org: "Aspire Education Academy (UK)",
                     sub: "Positive behaviour & de-escalation",
                     date: "2025",
-                    active: false,
+                    active: true,
                   },
                   {
                     title: "IELTS 8.0 Overall",
                     org: "British Council",
                     sub: "Listening 9.0 · Reading 8.5",
-                    date: "Current",
-                    active: false,
+                    date: "2023",
+                    active: true,
                   },
                 ].map((edu, i) => (
                   <GlassCard
@@ -1316,6 +1327,18 @@ export default function App() {
               />
               {[
                 {
+                  role: "Freelance ESOL Tutor",
+                  org: "London (Private ESOL & IELTS)",
+                  date: "2023 – Present",
+                  desc: "Delivering one-to-one and small-group ESOL and IELTS tuition focused on functional English, UK life skills and exam preparation.",
+                  icon: Users,
+                  skills: [
+                    "ESOL & functional skills",
+                    "IELTS & academic writing",
+                    "Individual learning plans",
+                  ],
+                },
+                {
                   role: "Freelance Interpreter",
                   org: "Absolute Translation & Interpretation LLC (UK)",
                   date: "May 2025 – Present",
@@ -1339,18 +1362,7 @@ export default function App() {
                     "Community outreach",
                   ],
                 },
-                {
-                  role: "Freelance ESOL Tutor",
-                  org: "London (Private ESOL & IELTS)",
-                  date: "2023 – Present",
-                  desc: "Delivering one-to-one and small-group ESOL and IELTS tuition focused on functional English, UK life skills and exam preparation.",
-                  icon: Users,
-                  skills: [
-                    "ESOL & functional skills",
-                    "IELTS & academic writing",
-                    "Individual learning plans",
-                  ],
-                },
+
                 {
                   role: "Manager & Director of Studies",
                   org: "Language Academy, Yazd University",
@@ -2125,7 +2137,7 @@ export default function App() {
               <p>
                 PhD-qualified ESOL & EAL teacher in London specialising in SEND
                 support, behaviour management, safeguarding, IELTS preparation
-                and Farsi / Kurdish / English interpreting.
+                and Farsi / English / French interpreting.
               </p>
               <p>
                 © {new Date().getFullYear()} Mehraban Hamavandy. All rights
