@@ -53,7 +53,7 @@ import {
 
 const CONFIG = {
   name: "Mehraban Hamavandy",
-  title: "PhD Education Professional",
+  title: "ESOL Professional",
   subtitle: "Specialist in EAL, SEND, Behaviour Support & Translation",
   image: "/image.webp",
   contact: {
@@ -205,7 +205,7 @@ const SEO = () => {
       "@type": "Person",
       name: "Mehraban Hamavandy",
       alternateName: ["Dr Mehraban Hamavandy", "مهربان هماوندی"],
-      jobTitle: "PhD Education Professional, ESOL/EAL Teacher & IELTS Tutor",
+      jobTitle: "ESOL Professional, ESOL/EAL Teacher & IELTS Tutor",
       description:
         "Experienced ESOL/EAL teacher and IELTS tutor with PhD in TESL, specializing in supporting multilingual learners in UK schools",
       url: window.location.href,
@@ -789,7 +789,7 @@ export default function App() {
                   Dr. Hamavandy
                 </p>
                 <p className="text-[11px] md:text-xs text-emerald-600 dark:text-emerald-300 font-semibold tracking-wide">
-                  PhD Education Professional
+                  ESOL Professional
                 </p>
               </div>
             </button>
@@ -1387,6 +1387,31 @@ export default function App() {
                     "Research supervision",
                   ],
                 },
+                {
+                  role: "Test Developer and Data Analyst",
+                  org: "Imam Ali Military Academy, Iran",
+                  date: "2019 – 2021",
+                  desc: "Developed and administered English proficiency tests for over 1,500 candidates, managing the entire assessment lifecycle.",
+                  icon: GraduationCap,
+                  skills: [
+                    "Test development",
+                    "Data analysis",
+                    "Assessment administration",
+                  ],
+                },
+                {
+                  role: "ESOL Instructor",
+                  org: "Iran Language Institute (ILI), Iran",
+                  date: "2008 – 2015",
+                  desc: "Delivered multi-level General English courses using a standardised curriculum while maintaining high student satisfaction and adapting materials to diverse learner needs.",
+                  icon: GraduationCap,
+                  skills: [
+                    "English language teaching",
+                    "Curriculum implementation",
+                    "Learner-centred instruction",
+                    "Material adaptation",
+                  ],
+                },
               ].map((job, index) => {
                 const [ref, visible] = useScrollReveal();
                 const leftSide = index % 2 === 0;
@@ -1469,21 +1494,21 @@ export default function App() {
                   title: "IELTS Preparation Guide",
                   type: "Book",
                   sub: "Comprehensive preparation for all four IELTS skills, rooted in authentic test data and learner corpora.",
-                  year: "2022",
+                  year: "2013",
                   icon: BookOpen,
                 },
                 {
                   title: "Language Test Validation",
                   type: "Journal Article",
                   sub: "Exploring validity, reliability and fairness in large-scale language assessments.",
-                  year: "2021",
+                  year: "2015",
                   icon: FileText,
                 },
                 {
                   title: "Pedagogical Grammar & EAP",
                   type: "Research Paper",
                   sub: "Research-informed approaches to teaching grammar in academic English courses.",
-                  year: "2020",
+                  year: "2013",
                   icon: Award,
                 },
               ].map((pub, i) => (
@@ -1514,7 +1539,7 @@ export default function App() {
 
             <div className="text-center">
               <a
-                href={CONFIG.contact.scholar}
+                href="https://scholar.google.com/citations?user=z-FLxlEAAAAJ&hl=en"
                 target="_blank"
                 rel="noreferrer noopener"
                 className="inline-flex items-center gap-2 px-6 md:px-8 py-3 rounded-2xl border border-slate-300 dark:border-slate-700 bg-white/90 dark:bg-white/5 text-sm md:text-base font-semibold text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
@@ -1966,44 +1991,6 @@ export default function App() {
                     </p>
                     <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
                       — Nelson Mandela
-                    </p>
-                  </div>
-                </GlassCard>
-
-                {/* References summary */}
-                <GlassCard className="!p-6 md:!p-7">
-                  <h3 className="text-lg md:text-xl font-display font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-3">
-                    <Users className="text-emerald-500" />
-                    Professional References
-                  </h3>
-                  <div className="space-y-4 text-xs md:text-sm">
-                    <div className="border-l-4 border-emerald-500/70 pl-4">
-                      <p className="font-semibold text-slate-900 dark:text-white">
-                        Farah Malik
-                      </p>
-                      <p className="text-emerald-600 dark:text-emerald-300 font-medium">
-                        Online Tutor, Aspire Education Academy (UK)
-                      </p>
-                      <p className="text-slate-600 dark:text-slate-300 mt-1">
-                        NCFE CACHE Level 2 Safeguarding & Behaviour Support
-                        tutor.
-                      </p>
-                    </div>
-                    <div className="border-l-4 border-sky-500/70 pl-4">
-                      <p className="font-semibold text-slate-900 dark:text-white">
-                        Rostam Farrahi
-                      </p>
-                      <p className="text-sky-500 dark:text-sky-300 font-medium">
-                        Director of Studies, Language Academy of Yazd University
-                      </p>
-                      <p className="text-slate-600 dark:text-slate-300 mt-1">
-                        Former line manager during my role as Manager & Director
-                        of Studies.
-                      </p>
-                    </div>
-                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-2">
-                      Full contact details available in the downloadable CV and
-                      on request for UK employers.
                     </p>
                   </div>
                 </GlassCard>
